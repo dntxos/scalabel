@@ -6,7 +6,9 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
-
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state/index';
 
 // player-controls
 // Get the task
@@ -26,7 +28,6 @@ class MultipleSelect extends React.Component<Props> {
     state = {
         name: [],
     };
-
 
     handleChangeMultiple = (event) => {
         const {options} = event.target;
@@ -91,6 +92,7 @@ const Category = withStyles(categoryStyles, {withTheme: true})(MultipleSelect);
 const deletButtonStyles = (theme) => ({
     button: {
         margin: theme.spacing.unit,
+        fontSize: 3,
     },
     rightIcon: {
         marginLeft: theme.spacing.unit,
@@ -110,6 +112,30 @@ function IconLabelButtons(props) {
 }
 const DeletButton = withStyles(deletButtonStyles)(IconLabelButtons);
 
+
+function TrafficLightColor() {
+    return (
+        <div>
+            <PopupState variant="popover" popupId="demo-popup-menu" size="small">
+                {popupState => (
+                    <React.Fragment>
+                        <Button variant="contained" size="small" fontSize="small" {...bindTrigger(popupState)}>
+                         Traffic Light Color
+                        </Button>
+                        <Menu {...bindMenu(popupState)}>
+                            <MenuItem onClick={popupState.close}>NA</MenuItem>
+                            <MenuItem onClick={popupState.close}>G</MenuItem>
+                            <MenuItem onClick={popupState.close}>Y</MenuItem>
+                            <MenuItem onClick={popupState.close}>R</MenuItem>
+                        </Menu>
+                    </React.Fragment>
+                )}
+            </PopupState>
+        </div>
+    );
+}
+
+
 /**
  * This is ToolBar component that displays
  * all the attributes and categories for the 2D bounding box labeling tool
@@ -127,7 +153,12 @@ export class ToolBar extends React.Component<Props> {
                 <ListItem>
                     <Category categories={categories}/>
                 </ListItem>
-                <DeletButton />
+                <ListItem>
+                    <TrafficLightColor />
+                </ListItem>
+                <ListItem>
+                    <DeletButton />
+                </ListItem>
             </div>
         );
     }
