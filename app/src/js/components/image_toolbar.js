@@ -1,5 +1,6 @@
 import React from 'react';
-import {categoryStyles, deletButtonStyles, switchStyles} from '../styles/2dbox';
+import {categoryStyles, removeButtonStyles,
+    switchStyles} from '../styles/2dbox';
 import ListItem from '@material-ui/core/ListItem';
 import {withStyles} from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -43,6 +44,10 @@ class MultipleSelect extends React.Component<Props> {
         });
     };
 
+    /**
+     * MultipleSelect render function
+     * @return {jsx} component
+     */
     render() {
         const {categories} = this.props;
         const {classes} = this.props;
@@ -76,6 +81,12 @@ class MultipleSelect extends React.Component<Props> {
 
 const Category = withStyles(categoryStyles, {withTheme: true})(MultipleSelect);
 
+/**
+ * This is a Icon Button component that
+ * displays the remove.
+ * @param {object} props
+ * @return {jsx} component
+ */
 function IconLabelButtons(props) {
     const {classes} = props;
     return (
@@ -87,8 +98,14 @@ function IconLabelButtons(props) {
         </div>
     );
 }
-const DeletButton = withStyles(deletButtonStyles)(IconLabelButtons);
+const RemoveButton = withStyles(removeButtonStyles)(IconLabelButtons);
 
+/**
+ * This is a Switch Button component that
+ * displays the list of selections.
+ * @param {string} value
+ * @return {jsx} component
+ */
 class SwitchButton extends React.Component<Props> {
     state = {
         checked: [],
@@ -110,6 +127,10 @@ class SwitchButton extends React.Component<Props> {
         });
     };
 
+    /**
+     * SwitchButton render function
+     * @return {jsx} component
+     */
     render() {
         const {classes} = this.props;
         const {attributes} = this.props;
@@ -121,7 +142,8 @@ class SwitchButton extends React.Component<Props> {
                     <ListItemSecondaryAction>
                         <Switch
                             onChange={this.handleToggle('Occluded')}
-                            checked={this.state.checked.indexOf('Occluded') !== -1}
+                            checked={this.state.checked.indexOf(
+                                'Occluded') !== -1}
                         />
                     </ListItemSecondaryAction>
                 </ListItem>
@@ -130,7 +152,8 @@ class SwitchButton extends React.Component<Props> {
                     <ListItemSecondaryAction>
                         <Switch
                             onChange={this.handleToggle('Truncated')}
-                            checked={this.state.checked.indexOf('Truncated') !== -1}
+                            checked={this.state.checked.indexOf(
+                                'Truncated') !== -1}
                         />
                     </ListItemSecondaryAction>
                 </ListItem>
@@ -141,6 +164,11 @@ class SwitchButton extends React.Component<Props> {
 
 const SwitchBtn = withStyles(switchStyles)(SwitchButton);
 
+/**
+ * This is a trafficLightColor button component that displays
+ * all the color attributes of the traffic lights
+ * @return {jsx} component
+ */
 function TrafficLightColor() {
     return (
         <div>
@@ -193,7 +221,7 @@ export class ToolBar extends React.Component<Props> {
                 </ListItem>
                 <Divider variant="middle" />
                 <ListItem>
-                    <DeletButton />
+                    <RemoveButton />
                 </ListItem>
             </div>
         );
