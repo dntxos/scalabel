@@ -27,9 +27,6 @@ class MultipleSelect extends React.Component<Props> {
         name: [],
     };
 
-    handleChange = (event) => {
-        this.setState({name: event.target.value});
-    };
 
     handleChangeMultiple = (event) => {
         const {options} = event.target;
@@ -85,18 +82,7 @@ const categoryStyles = (theme) => ({
         minWidth: 120,
         maxWidth: 300,
     },
-    chips: {
-        display: 'flex',
-        flexWrap: 'wrap',
-    },
-    chip: {
-        margin: theme.spacing.unit / 4,
-    },
-    noLabel: {
-        marginTop: theme.spacing.unit * 3,
-    },
 });
-
 
 const Category = withStyles(categoryStyles, {withTheme: true})(MultipleSelect);
 
@@ -115,9 +101,9 @@ function IconLabelButtons(props) {
     const {classes} = props;
     return (
         <div>
-            <Button variant="contained" className={classes.button}>
+            <Button size="small" fontSize="small" className={classes.button}>
                 Remove
-                <DeleteIcon className={classes.rightIcon} />
+                <DeleteIcon fontSize="small" />
             </Button>
         </div>
     );
