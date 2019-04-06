@@ -24,9 +24,9 @@ import yellow from '@material-ui/core/colors/yellow';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 
-type Props = {
-    categories: Object,
-    attributes: Object,
+interface Props {
+    categories: Object;
+    attributes: Object;
 }
 
 /**
@@ -34,11 +34,11 @@ type Props = {
  * all the categories as a list.
  */
 class MultipleSelect extends React.Component<Props> {
-    state = {
-        name: [],
+    public state = {
+        name: []
     };
 
-    handleChangeMultiple = (event) => {
+    public handleChangeMultiple = (event) => {
         const {options} = event.target;
         const value = [];
         for (let i = 0, l = options.length; i < l; i += 1) {
@@ -47,7 +47,7 @@ class MultipleSelect extends React.Component<Props> {
             }
         }
         this.setState({
-            name: value,
+            name: value
         });
     };
 
@@ -55,7 +55,7 @@ class MultipleSelect extends React.Component<Props> {
      * MultipleSelect render function
      * @return {jsx} component
      */
-    render() {
+    public render() {
         const {categories} = this.props;
         const {classes} = this.props;
 
@@ -94,13 +94,13 @@ const Category = withStyles(categoryStyles, {withTheme: true})(MultipleSelect);
  * @param {object} props
  * @return {jsx} component
  */
-function IconLabelButtons(props) {
+function IconLabelButtons(props: { classes: any; }) {
     const {classes} = props;
     return (
         <div>
-            <Button size="small" fontSize="small" className={classes.button}>
+            <Button size='small' fontSize='small' className={classes.button}>
                 Remove
-                <DeleteIcon fontSize="small" />
+                <DeleteIcon fontSize='small' />
             </Button>
         </div>
     );
@@ -114,11 +114,11 @@ const RemoveButton = withStyles(removeButtonStyles)(IconLabelButtons);
  * @return {jsx} component
  */
 class SwitchButton extends React.Component<Props> {
-    state = {
-        checked: [],
+    public state = {
+        checked: []
     };
 
-    handleToggle = (value) => () => {
+    public handleToggle = (value) => () => {
         const {checked} = this.state;
         const currentIndex = checked.indexOf(value);
         const newChecked = [...checked];
@@ -130,7 +130,7 @@ class SwitchButton extends React.Component<Props> {
         }
 
         this.setState({
-            checked: newChecked,
+            checked: newChecked
         });
     };
 
@@ -138,7 +138,7 @@ class SwitchButton extends React.Component<Props> {
      * SwitchButton render function
      * @return {jsx} component
      */
-    render() {
+    public render() {
         const {classes} = this.props;
         const {attributes} = this.props;
 
@@ -179,15 +179,15 @@ const SwitchBtn = withStyles(switchStyles)(SwitchButton);
 function TrafficLightColor() {
     return (
         <div>
-            <PopupState variant="popover"
-                        popupId="demo-popup-menu"
-                        size="small">
+            <PopupState variant='popover'
+                        popupId='demo-popup-menu'
+                        size='small'>
                 {(popupState) => (
                     <React.Fragment>
-                        <Button variant="contained"
-                                size="small"
-                                fontSize="small" {...bindTrigger(popupState)}>
-                         Traffic Light Color
+                        <Button variant='contained'
+                                size='small'
+                                fontSize='small' {...bindTrigger(popupState)}>
+                            Traffic Light Color
                         </Button>
                         <Menu {...bindMenu(popupState)}>
                             <MenuItem onClick={popupState.close}>NA</MenuItem>
@@ -303,7 +303,7 @@ export class ToolBar extends React.Component<Props> {
      * ToolBar render function
      * @return {jsx} component
      */
-    render() {
+    public render() {
         const {categories} = this.props;
         const {attributes} = this.props;
         return (
@@ -311,7 +311,7 @@ export class ToolBar extends React.Component<Props> {
                 <ListItem>
                     <Category categories={categories}/>
                 </ListItem>
-                <Divider variant="middle" />
+                <Divider variant='middle' />
                 <ListItem>
                     <SwitchBtn name = {attributes}/>
                 </ListItem>
@@ -322,7 +322,7 @@ export class ToolBar extends React.Component<Props> {
                 <ListItem>
                     <TrafficlightCheckBox />
                 </ListItem>
-                <Divider variant="middle" />
+                <Divider variant='middle' />
                 <ListItem>
                     <RemoveButton />
                 </ListItem>
