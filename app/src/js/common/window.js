@@ -4,6 +4,7 @@ import LabelLayout from '../components/label_layout';
 import TitleBar from '../components/title_bar';
 import Session from './session';
 import Path from './path';
+// $FlowFixMe
 import {ToolBar} from '../components/image_toolbar';
 import MainView from '../components/main_view';
 import ImageView from '../components/image_view';
@@ -55,6 +56,8 @@ export class Window {
         <ToolBar
             categories={state.config.categories}
             attributes={state.config.attributes}
+            itemType={state.config.itemType}
+            labelType={state.config.labelType}
         />
     );
     /* const leftSidebar1 = (<ToolBar/>); // just replace this*/
