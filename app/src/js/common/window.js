@@ -4,6 +4,8 @@ import LabelLayout from '../components/label_layout';
 import TitleBar from '../components/title_bar';
 import Session from './session';
 import Path from './path';
+// $FlowFixMe
+import {ToolBar} from '../components/tool_bar';
 import MainView from '../components/main_view';
 import ImageView from '../components/image_view';
 
@@ -40,22 +42,30 @@ export class Window {
          * rightSidebar1: optional
          * rightSidebar2: optional
          */
-    let state = Session.getState();
+    const state = Session.getState();
 
     // get all the components
-    let titleBar = (
+    const titleBar = (
         <TitleBar
             title={state.config.pageTitle}
             instructionLink={state.config.instructionPage}
             dashboardLink={Path.vendorDashboard()}
         />
     );
-    let leftSidebar1 = (<div>1</div>);
-    let imageView = (<ImageView key={'imageView'}/>);
-    let main = (<MainView views={[imageView]} />);
-    let bottomBar = (<div>3</div>);
-    let rightSidebar1 = (<div>4</div>);
-    let rightSidebar2 = (<div>5</div>);
+    const leftSidebar1 = (
+        <ToolBar
+            categories={state.config.categories}
+            attributes={state.config.attributes}
+            itemType={state.config.itemType}
+            labelType={state.config.labelType}
+        />
+    );
+    /* const leftSidebar1 = (<ToolBar/>); // just replace this*/
+    const imageView = (<ImageView key={'imageView'}/>);
+    const main = (<MainView views={[imageView]} />);
+    const bottomBar = (<div>3</div>);
+    const rightSidebar1 = (<div>4</div>);
+    const rightSidebar2 = (<div>5</div>);
     // render the interface
     ReactDOM.render(
         <LabelLayout
@@ -66,7 +76,7 @@ export class Window {
             rightSidebar1={rightSidebar1}
             rightSidebar2={rightSidebar2}
         />,
-        this.container,
+        this.container
     );
   }
 }
