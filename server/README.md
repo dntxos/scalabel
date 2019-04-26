@@ -87,7 +87,7 @@ cp app/config/default_config.yml data/config.yml
 ./bin/scalabel --config ./data/config.yml
 ````
 Access the speed test page at:
-``localhost:8686/dev/speed_test.html``.
+``dev.gerabytes.com.br:8686/dev/speed_test.html``.
 Make sure to copy the config every time the IP changes:
 ````
 cp app/config/default_config.yml data/config.yml
@@ -123,4 +123,4 @@ Start the python server:
 cd ../compute
 python model_server_local.py --local
 ````
-Follow the instructions [here](https://github.com/ucbdrive/sat) to launch the http server and go to ``localhost:8686/dev/speed_test.html``.
+Follow the instructions [here](https://github.com/ucbdrive/sat) to launch the http server and go to ``dev.gerabytes.com.br:8686/dev/speed_test.html``.

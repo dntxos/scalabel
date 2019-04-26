@@ -36,12 +36,12 @@ If you wish to serve your own data on the same domain as this server, you may
  will be uploaded to the server with the prefix path removed. For example, 
  you could place a directory "images" in "app/src/". If you are just testing
  the server locally, you can then specify in your item list URLs such as 
- "localhost:8686/images/image_1.jpg".
+ "dev.gerabytes.com.br:8686/images/image_1.jpg".
 
 ## Launch Server 
 As provided in the [README](../README.md), you can either set up the tool with
 the provided docker image or build the tool by yourself. Once you have the tool setup, 
-you can open `http://localhost:8686` to create your annotation project.
+you can open `http://dev.gerabytes.com.br:8686` to create your annotation project.
 
 
 ## Create Project 

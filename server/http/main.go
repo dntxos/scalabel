@@ -198,7 +198,7 @@ func main() {
 	http.HandleFunc("/dev/gateway", WrapHandleFunc(gatewayHandler))
 
 	Info.Printf("Listening to Port %d", env.Port)
-	Info.Printf("Local URL: localhost:%d", env.Port)
+	Info.Printf("Local URL: dev.gerabytes.com.br:%d", env.Port)
 	server := &http.Server{
 		Addr:           fmt.Sprintf(":%d", env.Port),
 		Handler:        nil,

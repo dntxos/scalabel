@@ -27,7 +27,7 @@
       "app/src/js",
       "app/src/js/v1"
     ],
-    "testURL": "http://localhost/",
+    "testURL": "http://dev.gerabytes.com.br/",
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
     }

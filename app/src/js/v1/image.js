@@ -208,6 +208,7 @@ SatImage.prototype.updateLabelCount = function() {
     }
   }
   document.getElementById('label-count').textContent = sprintf('%s', numLabels);
+  document.getElementById('objs-count').textContent = sprintf('%s', this.sat.tracksCount);
 };
 
 /**

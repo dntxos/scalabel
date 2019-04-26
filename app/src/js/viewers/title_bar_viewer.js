@@ -23,6 +23,15 @@ export class TitleBarViewer extends BaseViewer {
       if (labelCount) {
         labelCount.style.visibility = 'hidden';
       }
+
+      let objsCountTitle = document.getElementById('objs-count-title');
+      if (objsCountTitle) {
+        objsCountTitle.style.visibility = 'hidden';
+      }
+      let objsCount = document.getElementById('objs-count');
+      if (objsCount) {
+        objsCount.style.visibility = 'hidden';
+      }
     }
     // buttons
     let prevBtn = document.getElementById('prev-btn');
@@ -55,9 +64,14 @@ export class TitleBarViewer extends BaseViewer {
     let state = this.state;
     let currItem = state.current.item;
     let numLabels = state.items[currItem].labels.length;
+    let numObjs = state.tracksCount;
     let labelCount = document.getElementById('label-count');
     if (labelCount) {
       labelCount.textContent = sprintf('%d', numLabels);
+    }
+    let objsCount = document.getElementById('objs-count');
+    if (objsCount) {
+      objsCount.textContent = sprintf('%d', numObjs);
     }
     let pageCount = document.getElementById('page-count');
     if (pageCount) {

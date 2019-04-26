@@ -81,6 +81,6 @@ if __name__ == '__main__':
     if args.local:
         ray.init(num_cpus=100, ignore_reinit_error=True)
     else:
-        ray.init(redis_address="localhost:6379")
+        ray.init(redis_address="dev.gerabytes.com.br:6379")
 
     serve()

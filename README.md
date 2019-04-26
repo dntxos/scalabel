@@ -91,7 +91,7 @@ More installation and usage details can be find in our [documentation](http://ww
     ./bin/scalabel --config ./data/config.yml
     ```
     
-    Then, the server can be accessed at `http://localhost:8686`. You can now check out [example usage](#example-usage) to create your first annotation project.
+    Then, the server can be accessed at `http://dev.gerabytes.com.br:8686`. You can now check out [example usage](#example-usage) to create your first annotation project.
     
 5. Get labels
     
@@ -104,7 +104,7 @@ More installation and usage details can be find in our [documentation](http://ww
 
 ### Create annotation projects
 
-The entry point of creating an project is `http://localhost:8686/create`. The page looks like
+The entry point of creating an project is `http://dev.gerabytes.com.br:8686/create`. The page looks like
 
 <img src="https://www.scalabel.ai/doc/demo/readme/project-creation-blank.png" width="500px">
 

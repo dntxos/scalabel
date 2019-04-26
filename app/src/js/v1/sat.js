@@ -72,6 +72,7 @@ export function Sat(ItemType, LabelType, hasNetwork=true) {
   let self = this;
   self.items = []; // a.k.a ImageList, but can be 3D model list
   self.labels = []; // list of label objects
+  self.tracksCount=0;
   self.labelIdMap = {};
   self.lastLabelId = -1;
   self.currentItem = null;
@@ -519,6 +520,8 @@ Sat.prototype.decodeBaseJson = function(json) {
   self.startTime = json.startTime;
 
   self.currentItem = self.items[0];
+  self.tracksCount=json.tracks!=null ? json.tracks.length:0;
+  
 
   for (let i = 0; json.labels && i < json.labels.length; i++) {
     self.labelIdMap[json.labels[i].id].fromJsonPointers(json.labels[i]);
